@@ -6,7 +6,7 @@ canvas.height = 576;
 
 
 c.fillRect(0,0, canvas.width, canvas.height);
-
+const gravity = 0.2;
 class Sprite {
     constructor({position, velocity}) {
     this.position = position;
@@ -15,13 +15,15 @@ class Sprite {
     }
     draw() {
         c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, 50, 150);
+        c.fillRect(this.position.x, this.position.y, 50, this.height);
 
     }
     update(){
         this.draw();
-        this.position.y += this.velocity.y;
-        if (this.position.y + this.height)
+        this.velocity.y += gravity;
+        if (this.position.y + this.height + this.velocity.y >= canvas.height){
+            this.velocity.y = 0;
+        } else this.position.y += this.velocity.y;
     }
 }
 const player = new Sprite({
@@ -56,3 +58,7 @@ function animate(){
     enemy.update();
 }
 animate();
+
+window.addEventListener('keydown', (event) => {
+    console.log(event);
+})
