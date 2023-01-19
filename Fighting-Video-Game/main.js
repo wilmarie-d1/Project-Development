@@ -143,9 +143,11 @@ function animate(){
         rectangle2: enemy,
         }) &&
         player.isAttacking
-    ){
+    ) {
         player.isAttacking = false;
-        console.log('go');if(
+        console.log('go');
+    }{
+        if(
         rectangularCollusion({
         rectangle1: enemy,
         rectangle2: player,
@@ -188,6 +190,9 @@ animate();
                 break;
          case 'ArrowUp':
             enemy.velocity.y = -20
+                break
+            case 'ArrowDown':
+            enemy.isAttacking = true
                 break
         }
         console.log(event.key)
