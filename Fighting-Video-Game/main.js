@@ -6,6 +6,7 @@ canvas.height = 576;
 
 
 c.fillRect(0,0, canvas.width, canvas.height);
+
 const gravity = 0.7;
 class Sprite {
     constructor({position, velocity, color = 'red', offset}) {
@@ -30,10 +31,11 @@ class Sprite {
         c.fillStyle = this.color
         c.fillRect(this.position.x, this.position.y, this.width, this.height);
             //attack box
-        // if (this.isAttacking) {
-        c.fillStyle = 'green'
-        c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
-    }
+        if (this.isAttacking) {
+            c.fillStyle = 'green'
+            c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height);
+        }
+        }
     update(){
 
         this.draw();
@@ -195,8 +197,6 @@ animate();
             enemy.isAttacking = true
                 break
         }
-        console.log(event.key)
-
     })
     window.addEventListener("keyup",(event)  => {
         console.log(event.key)
@@ -219,5 +219,4 @@ animate();
         enemy.lastKey = 'w'
                 break;
     }
-        console.log(event.key)
 })
