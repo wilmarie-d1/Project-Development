@@ -103,6 +103,8 @@ public class AccountFrame extends JFrame {
 
         //Adding Comonents to Frame
 
+        //Adding Panels
+
     }
 
     public static void main(String[] args) {
