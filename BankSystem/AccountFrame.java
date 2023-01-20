@@ -81,9 +81,27 @@ public class AccountFrame extends JFrame {
         depositBTN = new JButton("Deposit");
         withdrawBTN = new JButton("Withdraw");
 
+        // 6 - Table
+        accountsLSTMDL = new DefaultListModel<>();
+        accountsLST = new JList<>(accountsLSTMDL);
 
+        //7 - Panels
+        p1 = new JPanel(); p1.setBounds(5, 5, 300, 150);
+        p1.setLayout(new GridLayout(5,2));
 
+        p2 = new JPanel(); p2.setBounds(5, 155, 300, 40);
+        p2.setLayout(new FlowLayout());
 
+        p3 = new JPanel(); p3.setBounds(5, 195, 600, 40);
+        p3.setLayout(new FlowLayout());
+
+        p4 = new JPanel(); p4.setBounds(305, 5, 300, 190);
+        p4.setLayout(new BorderLayout());
+
+        p5 = new JPanel(); p5.setBounds(5, 240, 580, 120);
+        p5.setLayout(new BorderLayout());
+
+        //Adding Comonents to Frame
 
     }
 
