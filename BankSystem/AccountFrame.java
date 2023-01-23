@@ -101,7 +101,17 @@ public class AccountFrame extends JFrame {
         p5 = new JPanel(); p5.setBounds(5, 240, 580, 120);
         p5.setLayout(new BorderLayout());
 
-        //Adding Comonents to Frame
+        //Adding Components to Panel
+        p1.add(accnNoLBL);
+        p1.add(accNoTXT);
+        p1.add(ownerLBL);
+        p1.add(ownerTXT);
+        p1.add(balanceLBL);
+        p1.add(balanceTXT);
+        p1.add(cityLBL);
+        p1.add(citiesCMB);
+        p1.add(maleRDB);
+        p1.add(femaleRDB);
 
         //Adding Panels
 
