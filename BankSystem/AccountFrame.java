@@ -42,7 +42,7 @@ public class AccountFrame extends JFrame {
         //1 - Labels
         accnNoLBL = new JLabel("Account No.");
         ownerLBL = new JLabel("Owner");
-        balanceLBL = new JLabel("balance");
+        balanceLBL = new JLabel("Balance");
         cityLBL = new JLabel("City");
         genderLBL = new JLabel("Gender");
         amountLBL = new JLabel("Amount");
@@ -133,6 +133,17 @@ public class AccountFrame extends JFrame {
         add(p3);
         add(p4);
         add(p5);
+
+        //Table creation
+        tableModel = new DefaultTableModel();
+        table = new JTable(tableModel);
+        tableModel.addColumn("TrsNO");
+        tableModel.addColumn("TrsType");
+        tableModel.addColumn("TrsDate");
+        tableModel.addColumn("TrsAmount");
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        p5.add(scrollPane);
 
     }
 
