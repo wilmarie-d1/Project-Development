@@ -3,6 +3,8 @@ package BankSystem;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
@@ -115,8 +117,8 @@ public class AccountFrame extends JFrame {
 
         p2.add(newBTN);
         p2.add(saveBTN);
-        p2.add(showBTN);
         p2.add(quitBTN);
+        p2.add(showBTN);
 
         p3.add(amountLBL);
         p3.add(amountTXT);
@@ -144,6 +146,58 @@ public class AccountFrame extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(table);
         p5.add(scrollPane);
+
+
+        /******Functionality *******/
+        newBTN.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                accNoTXT.setText("");
+                ownerLBL.setText("");
+                citiesCMB.setSelectedIndex(0);
+                maleRDB.setSelected(true);
+                balanceTXT.setText("");
+                newRec = true;
+            }
+
+        });
+        saveBTN.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (newRec){
+                    //Insertion
+                    if (ownerTXT.getText().length() != 0) {
+                        acc = new Account(
+                                ownerTXT.getText(),
+                                (City) citiesCMB.getSelectedItem(),
+                                maleRDB.isSelected()? 'M':'F');
+                        accNoTXT.setText(String.valueOf(acc.accNo));
+                        accountSet.add(acc);
+                        accountsLSTMDL.addElement(acc);
+                        newRec = false;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please Fill all Fields Please" );
+                    }
+                }       else {
+
+                    //updating
+                    accountSet.remove(acc);
+
+                    int a = Integer.parseInt(accNoTXT.getText());
+                    String o = ownerTXT.getText();
+                    City c = (City) citiesCMB.getSelectedItem();
+
+                    char g = maleRDB.isSelected()?'M':'F';
+                    double n = Double.parseDouble(balanceTXT.getText());
+                    acc = new Account(a, o, c, g, n);
+                    accountSet.add(acc);
+                    accountsLSTMDL.setElementAt(acc, accountsLST.getSelectedIndex());
+                    newRec = false;
+                }
+            }
+        });
+
+
 
     }
 
