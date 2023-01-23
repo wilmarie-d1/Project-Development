@@ -197,7 +197,15 @@ public class AccountFrame extends JFrame {
             }
         });
 
+            showBTN.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String s = "";
 
+                    for (Account account : accountSet) {
+                    }
+                }
+            });
 
     }
 
